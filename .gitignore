@@ -1,0 +1,5 @@
+build/
+processpilot
+process.pid
+processpilot.log
+*.o

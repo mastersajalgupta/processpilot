@@ -1,0 +1,31 @@
+#include <iostream>
+#include <unistd.h>
+
+#include "process/process_manager.hpp"
+
+int main() {
+
+    ProcessManager manager;
+
+    pid_t pid = manager.startProcess("/usr/bin/sleep");
+
+    if (pid == -1) {
+        std::cout << "Failed to start process\n";
+        return 1;
+    }
+
+    std::cout << "Process started\n";
+    std::cout << "PID: " << pid << "\n";
+
+    sleep(20);
+
+    if (manager.isRunning(pid)) {
+        std::cout << "Process is running\n";
+    }
+
+    manager.stopProcess(pid);
+
+    std::cout << "Process stopped\n";
+
+    return 0;
+}

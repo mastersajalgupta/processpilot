@@ -1,0 +1,5 @@
+name=demo
+program=/usr/bin/sleep
+argument=1000
+restart=true
+depends_on=
